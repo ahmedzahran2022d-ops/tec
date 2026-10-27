@@ -39,6 +39,36 @@ header{position:sticky;top:0;z-index:30;background:var(--bar);border-bottom:1px 
 .intro h1 b{color:var(--gold)}
 .intro p{color:var(--muted);margin-top:6px;max-width:40em}
 
+.go{display:inline-block;margin-top:22px;background:var(--gold);color:#16130a;font-weight:900;font-size:1.05rem;padding:13px 34px;border-radius:13px;transition:background .15s}
+.go:hover{background:var(--gold-d)}
+.benefits{display:flex;gap:10px 28px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid var(--line);color:#c9cee0;font-weight:700;font-size:.95rem}
+.benefits span::before{content:"\2713";color:var(--gold);font-weight:900;margin-left:8px}
+.final{margin-top:56px;text-align:center;padding:46px 22px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(120deg,#1a1d29,#12141b)}
+.final h2{font-size:clamp(1.6rem,4vw,2.3rem);font-weight:900;line-height:1.4}
+.final h2 b{color:var(--gold)}
+.final p{color:var(--muted);margin-top:4px}
+
+/* showcase */
+.show{display:grid;grid-template-columns:270px 1fr;gap:34px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:32px;margin-bottom:26px}
+.side{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.side img,.side .ph{width:132px;height:132px;border-radius:30px;box-shadow:0 14px 40px rgba(0,0,0,.5)}
+.side .ph{display:grid;place-items:center;font-size:4rem;font-weight:900;color:#fff;background:linear-gradient(150deg,#3d7bff,#7a3dff)}
+.side h3{font-size:1.7rem;font-weight:900;line-height:1.3}
+.side .row{display:flex;gap:8px;flex-wrap:wrap}
+.side .row span{font-size:.78rem;font-weight:800;padding:2px 12px;border-radius:8px;background:var(--win);color:#fff}
+.side .row span.v{background:rgba(0,0,0,.45);color:var(--gold);border:1px solid var(--line)}
+.side .dl,.side .buy{width:100%}
+.alt{font-size:.85rem;color:var(--muted);text-decoration:underline;text-underline-offset:4px}
+.alt:hover{color:var(--gold)}
+.main h4.tl{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;line-height:1.45}
+.main h4.tl b{color:var(--gold)}
+.main .lead{color:var(--muted);margin:6px 0 22px;max-width:44em}
+.groups{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.grp{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.grp h5{font-size:1.02rem;font-weight:800;color:var(--gold);margin-bottom:6px}
+.grp li{list-style:none;font-size:.92rem;color:#c9cee0;line-height:1.6;padding:3px 0 3px 0;position:relative;padding-right:22px}
+.grp li::before{content:"\2713";position:absolute;right:0;color:var(--gold);font-weight:900}
+@media(max-width:820px){.show{grid-template-columns:1fr;padding:22px;gap:22px}}
 /* filters */
 .bar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:30px 0 20px}
 .bar h2{font-size:1.5rem;font-weight:800;display:flex;align-items:center;gap:12px}
@@ -66,6 +96,10 @@ header{position:sticky;top:0;z-index:30;background:var(--bar);border-bottom:1px 
 .dl:hover{background:var(--gold-d)}
 .dl svg{width:17px;height:17px;fill:currentColor}
 .dl small{font-weight:700;opacity:.7;font-size:.78rem}
+.buy{display:flex;justify-content:center;align-items:center;gap:8px;border:1.5px solid var(--gold);color:var(--gold);font-weight:800;padding:8px;border-radius:12px;transition:.15s}
+.buy:hover{background:var(--gold);color:#16130a}
+.buy small{font-weight:800;opacity:.85}
+.trial{font-size:.8rem;font-weight:700;color:var(--gold)}
 .empty{text-align:center;color:var(--muted);padding:60px 0}
 
 /* help */
@@ -100,26 +134,41 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 
 <div class="wrap">
   <section class="intro">
-    <h1>حمّل برامجك المفضلة <b>مجاناً</b> وبضغطة واحدة</h1>
-    <p>برامج ويندوز وتطبيقات أندرويد بروابط تحميل مباشرة، بدون تسجيل وبدون انتظار.</p>
+    <h1>أدوات تجعل عملك <b>أسرع وأسهل</b>، ابدأ بها اليوم</h1>
+    <p>اختر البرنامج الذي يناسبك، وابدأ باستخدامه خلال دقيقة واحدة، وشاهد الفرق بنفسك من أول استخدام.</p>
+    <a class="go" href="#apps">ابدأ الآن</a>
+    <div class="benefits">
+      <span>تحميل فوري ومباشر</span>
+      <span>بدون تسجيل ولا تعقيد</span>
+      <span>جرّبه بنفسك بلا التزام</span>
+      <span>نسخة كاملة بضغطة واحدة</span>
+    </div>
   </section>
 
   <section id="apps">
     <div class="bar">
-      <h2>أحدث البرامج</h2>
+      <h2>اختر أداتك وابدأ الآن</h2>
       <div class="chips" id="chips" role="group" aria-label="تصفية حسب النظام">
         <button data-filter="all" aria-pressed="true">الكل</button>
         <button data-filter="windows" aria-pressed="false">ويندوز</button>
         <button data-filter="mobile" aria-pressed="false">أندرويد</button>
       </div>
     </div>
+    <div id="showcase"></div>
     <div class="grid" id="grid"></div>
     <p class="empty" id="empty" hidden>لا توجد نتائج مطابقة.</p>
   </section>
 
   <section class="help" id="help">
     <div><h3>تثبيت ملفات الأندرويد (APK)</h3><p>بعد التحميل افتح الملف، وإذا ظهرت رسالة منع فعّل «السماح بالتثبيت من هذا المصدر» من الإعدادات ثم أعد فتحه.</p></div>
+    <div><h3>كيف أحصل على النسخة الكاملة؟</h3><p>اضغط «احصل على النسخة الكاملة» على بطاقة البرنامج، وسنرسل لك النسخة أو مفتاح التفعيل بسرعة.</p></div>
     <div><h3>تحذير SmartScreen في ويندوز</h3><p>اختر «مزيد من المعلومات» ثم «تشغيل على أي حال». تظهر هذه الرسالة مع البرامج الجديدة.</p></div>
+  </section>
+
+  <section class="final">
+    <h2>جاهز لتبدأ؟ <b>جرّب الآن</b> وشاهد الفرق</h2>
+    <p>اختر برنامجاً واحداً وابدأ، فلن تخسر شيئاً.</p>
+    <a class="go" href="#apps">اختر برنامجك</a>
   </section>
 </div>
 
@@ -132,32 +181,64 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 /* ======================================================
    عدّل هنا فقط: كل برنامج بين { } ، وافصل بينهم بفاصلة.
    platform: "windows" أو "mobile"
-   link: رابط التحميل المباشر من GitHub Releases
+   link: رابط تحميل النسخة التجريبية من GitHub Releases
+   buy: رابط النسخة الكاملة (واتساب أو صفحة دفع)، وامسح السطر لو مش عايزه
+   trial / price / size: اختيارية
+   icon: اسم صورة أيقونة البرنامج (ارفعها بجوار index.html)
+   features: لو كتبتها يظهر البرنامج في بلوك كبير بكل مزاياه
    ====================================================== */
 const APPS = [
   {
-    name: "اسم برنامج ويندوز ١",
-    desc: "وصف قصير يشرح ماذا يفعل البرنامج وما أهم مميزاته.",
+    name: "تقويم المعلم",
     platform: "windows",
-    version: "1.0",
-    size: "12 MB",
-    link: "https://github.com/USERNAME/USERNAME.github.io/releases/download/v1.0/app1.zip"
-  },
-  {
-    name: "اسم برنامج ويندوز ٢",
-    desc: "وصف قصير يشرح ماذا يفعل البرنامج وما أهم مميزاته.",
-    platform: "windows",
-    version: "1.2",
-    size: "30 MB",
-    link: "https://github.com/USERNAME/USERNAME.github.io/releases/download/v1.0/app2.exe"
-  },
-  {
-    name: "اسم تطبيق أندرويد",
-    desc: "وصف قصير يشرح ماذا يفعل التطبيق وما أهم مميزاته.",
-    platform: "mobile",
-    version: "1.0",
-    size: "8 MB",
-    link: "https://github.com/USERNAME/USERNAME.github.io/releases/download/v1.0/app.apk"
+    version: "3.1.1",
+    trial: "جرّبه مجاناً",
+    icon: "teacher-calendar.png",
+    buy: "https://wa.me/201210349982",
+    link: "https://github.com/yourtec/yourtec.github.io/releases/download/v3.1.1/TeacherCalendar-Setup-3.1.1.exe",
+    alt: "https://github.com/yourtec/yourtec.github.io/releases/download/v3.1.1/TeacherCalendar-Portable-3.1.1.exe",
+    tagline: "حصصك وطلابك وتقاريرك، <b>كلها في مكان واحد</b>",
+    desc: "صُمّم لمعلمي القرآن والمعلمين أونلاين، ليوفّر عليك وقت التنظيم والمتابعة والمراسلة، فتتفرغ لما تُجيده: التعليم.",
+    features: [
+      ["تنظيم الحصص", [
+        "تقويم واضح لحصص اليوم والأسبوع",
+        "أضف حصة جديدة في ثوانٍ",
+        "كرّر الحصة على أيام الأسبوع تلقائياً",
+        "عدّل «هذه الحصة فقط» أو «كل الحصص القادمة»",
+        "تراجع وإعادة لأي تعديل، وحفظ تلقائي"
+      ]],
+      ["ملف كامل لكل طالب", [
+        "بيانات الطالب والمقرر والأكاديمية وبلده",
+        "باقات الاشتراك (تجريبية، 4، 8، 12، 16 حصة) مع تتبّع الحصة القادمة وحالة الدفع",
+        "رقم ولي الأمر ورابط مجموعة واتساب",
+        "رابط زوم أو جوجل ميت لكل طالب",
+        "مواعيد ثابتة، ومدة حصة 30 أو 45 دقيقة"
+      ]],
+      ["متابعة الحفظ", [
+        "تقرير لكل حصة: السورة، من آية إلى آية، المراجعة، «وصلنا لفين»",
+        "صورة تقدّم الحفظ جاهزة للإرسال",
+        "إجمالي الآيات المحفوظة لكل طالب"
+      ]],
+      ["تواصل أسرع مع الطلاب", [
+        "تذكير بالحصة كرسالة نصية أو كصورة جاهزة",
+        "أضف دعاءً تختاره إلى الرسالة",
+        "انسخ التقرير وافتح مجموعة الطالب بضغطة",
+        "أوقاتك الفارغة في صورة، بتوقيت بلد الطالب"
+      ]],
+      ["محاسبة وتقارير", [
+        "إجمالي الحصص الفعلية والتجريبية",
+        "إجمالي الشهر في نظرة واحدة",
+        "تصدير الحصص بصيغة CSV"
+      ]],
+      ["راحتك وأمان بياناتك", [
+        "مواقيت الصلاة بطريقة الهيئة المصرية لمحافظتك",
+        "تنبيهات على سطح المكتب بالمواعيد والأذكار",
+        "يعمل بدون إنترنت ويبدأ مع تشغيل ويندوز",
+        "نسخ احتياطي يومي وعند الإغلاق، مع تصدير واستيراد",
+        "مزامنة بين الكمبيوتر والموبايل",
+        "واجهة عربية وإنجليزية"
+      ]]
+    ]
   }
 ];
 
@@ -172,12 +253,8 @@ const grid = document.getElementById("grid"), empty = document.getElementById("e
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 let filter = "all";
 
-function render(){
-  const term = q.value.trim().toLowerCase();
-  const list = APPS.map((a,i) => ({a,i})).filter(({a}) =>
-    (filter === "all" || a.platform === filter) &&
-    (!term || (a.name + " " + a.desc).toLowerCase().includes(term)));
-  grid.innerHTML = list.map(({a,i}) => `
+function card(a, i){
+  return `
     <article class="item" data-platform="${esc(a.platform)}">
       <div class="cover" style="background:${COVERS[i % COVERS.length]}">
         <span class="pf">${LABELS[a.platform] || ""}</span>
@@ -186,10 +263,46 @@ function render(){
         <span class="nm">${esc(a.name)}</span>
       </div>
       <div class="info">
-        <p class="desc">${esc(a.desc)}</p>
-        <a class="dl" href="${esc(a.link)}" download>${DL} تحميل ${a.size ? `<small>${esc(a.size)}</small>` : ""}</a>
+        <p class="desc">${esc(a.desc || "")}</p>
+        ${a.trial ? `<span class="trial">${esc(a.trial)}</span>` : ""}
+        <a class="dl" href="${esc(a.link)}" download>${DL} ابدأ التجربة الآن ${a.size ? `<small>${esc(a.size)}</small>` : ""}</a>
+        ${a.buy ? `<a class="buy" href="${esc(a.buy)}" target="_blank" rel="noopener">احصل على النسخة الكاملة ${a.price ? `<small>${esc(a.price)}</small>` : ""}</a>` : ""}
       </div>
-    </article>`).join("");
+    </article>`;
+}
+
+function showcase(a){
+  const groups = a.features.map(([t, items]) =>
+    `<div class="grp"><h5>${esc(t)}</h5><ul>${items.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>`).join("");
+  const art = a.icon
+    ? `<img src="${esc(a.icon)}" alt="${esc(a.name)}" width="132" height="132" onerror="this.outerHTML='<div class=&quot;ph&quot;>${esc(a.name.trim().charAt(0))}</div>'">`
+    : `<div class="ph">${esc(a.name.trim().charAt(0))}</div>`;
+  return `
+    <article class="show" data-platform="${esc(a.platform)}">
+      <div class="side">
+        ${art}
+        <h3>${esc(a.name)}</h3>
+        <div class="row"><span>${LABELS[a.platform] || ""}</span>${a.version ? `<span class="v">الإصدار ${esc(a.version)}</span>` : ""}</div>
+        ${a.trial ? `<span class="trial">${esc(a.trial)}</span>` : ""}
+        <a class="dl" href="${esc(a.link)}" download>${DL} ابدأ التجربة الآن ${a.size ? `<small>${esc(a.size)}</small>` : ""}</a>
+        ${a.buy ? `<a class="buy" href="${esc(a.buy)}" target="_blank" rel="noopener">احصل على النسخة الكاملة ${a.price ? `<small>${esc(a.price)}</small>` : ""}</a>` : ""}
+        ${a.alt ? `<a class="alt" href="${esc(a.alt)}" download>أو حمّل النسخة المحمولة (بدون تثبيت)</a>` : ""}
+      </div>
+      <div class="main">
+        <h4 class="tl">${a.tagline || esc(a.name)}</h4>
+        <p class="lead">${esc(a.desc || "")}</p>
+        <div class="groups">${groups}</div>
+      </div>
+    </article>`;
+}
+
+function render(){
+  const term = q.value.trim().toLowerCase();
+  const text = a => (a.name + " " + (a.desc || "") + " " + (a.features ? a.features.map(g => g[0] + " " + g[1].join(" ")).join(" ") : "")).toLowerCase();
+  const list = APPS.map((a,i) => ({a,i})).filter(({a}) =>
+    (filter === "all" || a.platform === filter) && (!term || text(a).includes(term)));
+  document.getElementById("showcase").innerHTML = list.filter(({a}) => a.features).map(({a}) => showcase(a)).join("");
+  grid.innerHTML = list.filter(({a}) => !a.features).map(({a,i}) => card(a,i)).join("");
   empty.hidden = list.length > 0;
 }
 
