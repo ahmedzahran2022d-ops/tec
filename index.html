@@ -118,6 +118,20 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
   .grid{grid-template-columns:repeat(2,1fr);gap:18px 12px}
   .cover .big{font-size:4.4rem}
 }
+
+/* معرض الصور */
+.shots-h{margin:22px 0 10px;font-size:1.05rem;font-weight:800;color:var(--gold)}
+.shots{display:flex;gap:12px;overflow-x:auto;padding:2px 2px 12px;scroll-snap-type:x proximity}
+.shot{flex:0 0 auto;padding:0;border:1px solid var(--line);background:var(--card);border-radius:12px;overflow:hidden;cursor:zoom-in;scroll-snap-align:start;transition:border-color .15s,transform .15s}
+.shot:hover{border-color:var(--gold);transform:translateY(-2px)}
+.shot img{display:block;height:170px;width:auto;max-width:300px;object-fit:cover}
+#lb{position:fixed;inset:0;z-index:100;background:rgba(5,6,10,.92);display:none;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:20px}
+#lb.on{display:flex}
+#lb img{max-width:92vw;max-height:80vh;border-radius:10px;box-shadow:0 10px 50px rgba(0,0,0,.6)}
+#lb .cap{color:var(--ink);font-size:1rem;text-align:center;min-height:1.5em}
+#lb button{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:50%;width:46px;height:46px;font-size:26px;cursor:pointer;line-height:1}
+#lb button:hover{background:var(--gold);color:#111}
+#lb .x{top:16px;left:16px}#lb .pv{right:16px;top:50%}#lb .nx{left:16px;top:50%}
 </style>
 </head>
 <body>
@@ -190,6 +204,18 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 const APPS = [
   {
     name: "تقويم المعلم",
+    shots: [
+      {src: "tc-1.jpg", cap: "لوحة اليوم: حصص اليوم والحصة القادمة"},
+      {src: "tc-2.jpg", cap: "التقويم الشهري بحصص كل يوم"},
+      {src: "tc-3.jpg", cap: "التقويم الأسبوعي بالساعات"},
+      {src: "tc-4.jpg", cap: "سجل الحصص بالفلاتر والبحث"},
+      {src: "tc-5.jpg", cap: "بطاقات الطلاب ومتابعة التقدم"},
+      {src: "tc-6.jpg", cap: "إضافة طالب جديد"},
+      {src: "tc-7.jpg", cap: "إضافة حصة جديدة"},
+      {src: "tc-8.jpg", cap: "التقارير ونسبة الإنجاز"},
+      {src: "tc-9.jpg", cap: "المحاسبة وحساب الأجور"},
+      {src: "tc-10.jpg", cap: "الإعدادات والمظهر"}
+    ],
     platform: "windows",
     version: "3.1.1",
     trial: "جرّبه مجاناً",
@@ -327,6 +353,15 @@ function card(a, i){
     </article>`;
 }
 
+function shotsHTML(a){
+  if (!a.shots || !a.shots.length) return "";
+  const ai = APPS.indexOf(a);
+  const items = a.shots.map((x, i) => {
+    const o = typeof x === "string" ? {src: x} : x;
+    return `<button type="button" class="shot" data-a="${ai}" data-i="${i}" aria-label="${esc(o.cap || "صورة من البرنامج")}"><img src="${esc(o.src)}" alt="${esc(o.cap || a.name)}" loading="lazy" onerror="var b=this.closest('.shot'),w=b.parentNode;b.remove();if(!w.children.length)w.previousElementSibling.remove(),w.remove()"></button>`;
+  }).join("");
+  return `<h5 class="shots-h">صور من البرنامج</h5><div class="shots">${items}</div>`;
+}
 function showcase(a){
   const groups = a.features.map(([t, items]) =>
     `<div class="grp"><h5>${esc(t)}</h5><ul>${items.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>`).join("");
@@ -348,6 +383,7 @@ function showcase(a){
         <h4 class="tl">${a.tagline || esc(a.name)}</h4>
         <p class="lead">${esc(a.desc || "")}</p>
         <div class="groups">${groups}</div>
+        ${shotsHTML(a)}
       </div>
     </article>`;
 }
@@ -371,6 +407,33 @@ btns.forEach(b => b.addEventListener("click", () => {
 q.addEventListener("input", render);
 document.getElementById("year").textContent = new Date().getFullYear();
 render();
+
+/* نافذة تكبير الصور */
+(function(){
+  const lb = document.createElement("div"); lb.id = "lb";
+  lb.innerHTML = '<button class="x" aria-label="إغلاق">×</button><button class="pv" aria-label="السابق">›</button><button class="nx" aria-label="التالي">‹</button><img alt=""><div class="cap"></div>';
+  document.body.appendChild(lb);
+  let list = [], idx = 0;
+  const img = lb.querySelector("img"), cap = lb.querySelector(".cap");
+  const norm = x => typeof x === "string" ? {src:x} : x;
+  function show(){ const o = norm(list[idx]); img.src = o.src; cap.textContent = o.cap || ""; }
+  function step(d){ idx = (idx + d + list.length) % list.length; show(); }
+  function close(){ lb.classList.remove("on"); document.body.style.overflow = ""; }
+  document.addEventListener("click", e => {
+    const b = e.target.closest(".shot");
+    if (b){ list = APPS[+b.dataset.a].shots; idx = +b.dataset.i; show(); lb.classList.add("on"); document.body.style.overflow = "hidden"; return; }
+    if (!lb.classList.contains("on")) return;
+    if (e.target.closest(".x") || e.target === lb) close();
+    else if (e.target.closest(".pv")) step(-1);
+    else if (e.target.closest(".nx")) step(1);
+  });
+  document.addEventListener("keydown", e => {
+    if (!lb.classList.contains("on")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowRight") step(-1);
+    if (e.key === "ArrowLeft") step(1);
+  });
+})();
 </script>
 </body>
 </html>
