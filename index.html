@@ -134,6 +134,40 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 #lb button{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:50%;width:46px;height:46px;font-size:26px;cursor:pointer;line-height:1}
 #lb button:hover{background:var(--gold);color:#111}
 #lb .x{top:16px;left:16px}#lb .pv{right:16px;top:50%}#lb .nx{left:16px;top:50%}
+
+/* ===== تحسين احترافي ===== */
+header{background:rgba(18,20,27,.85);backdrop-filter:blur(10px)}
+.intro{position:relative;overflow:hidden;padding:46px 40px;background:radial-gradient(900px 300px at 85% -10%,rgba(255,178,30,.14),transparent 60%),linear-gradient(120deg,#1a1d29,#12141b)}
+.eyebrow{display:inline-block;font-size:.82rem;font-weight:800;color:var(--gold);border:1px solid rgba(255,178,30,.4);background:rgba(255,178,30,.08);padding:3px 16px;border-radius:99px;margin-bottom:14px}
+.intro h1{line-height:1.35;margin-bottom:4px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.go.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.go.ghost:hover{border-color:var(--gold);color:var(--gold);background:transparent}
+.show{box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.trust{margin-top:54px}
+.tg{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.tc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:8px;transition:border-color .2s,transform .2s}
+.tc:hover{border-color:rgba(255,178,30,.45);transform:translateY(-2px)}
+.tc.wide{grid-column:1/-1}
+.tc h3{font-size:1.1rem;font-weight:800}
+.tc p{color:var(--muted);font-size:.93rem}
+.tc p.hl{color:#c9cee0;font-weight:700;margin-top:6px}
+.av,.ic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:rgba(255,178,30,.12);color:var(--gold);font-weight:900;font-size:1.5rem}
+.ic svg{width:26px;height:26px;fill:currentColor}
+.tl{margin-top:auto;align-self:flex-start;font-weight:800;font-size:.9rem;color:var(--gold);border-bottom:1.5px solid rgba(255,178,30,.4);padding-bottom:1px}
+.tl:hover{border-color:var(--gold)}
+.cmd{display:block;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font:600 .85rem/1.6 Consolas,Menlo,monospace;color:#c9cee0;overflow-x:auto;text-align:left;white-space:nowrap}
+.cmd.hash{color:var(--gold)}
+.f2{margin-top:64px;border-top:1px solid var(--line);background:var(--bar);padding:40px 0 0;text-align:right}
+.f2 .fg{display:grid;gap:30px;grid-template-columns:1.4fr 1fr 1fr}
+.f2 p{color:var(--muted);font-size:.92rem;margin-top:8px;max-width:26em}
+.f2 h4{font-size:.95rem;font-weight:800;color:var(--gold);margin-bottom:8px}
+.f2 .fg a:not(.logo){display:block;color:#c9cee0;font-size:.92rem;padding:3px 0}
+.f2 .fg a:not(.logo):hover{color:var(--gold)}
+.f2 .copy{margin-top:30px;padding-top:16px;padding-bottom:22px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media(max-width:700px){.f2 .fg{grid-template-columns:1fr}.intro{padding:30px 22px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -144,20 +178,21 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
       <svg viewBox="0 0 24 24"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 14 15.5l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
       <input id="q" type="search" placeholder="ابحث عن برنامج..." aria-label="ابحث عن برنامج">
     </label>
-    <nav class="menu"><a href="#apps">البرامج</a><a href="#help">المساعدة</a></nav>
+    <nav class="menu"><a href="#apps">البرامج</a><a href="#trust">الأمان</a><a href="#help">المساعدة</a></nav>
   </div>
 </header>
 
 <div class="wrap">
   <section class="intro">
-    <h1>أدوات تجعل عملك <b>أسرع وأسهل</b>، ابدأ بها اليوم</h1>
-    <p>اختر البرنامج الذي يناسبك، وابدأ باستخدامه خلال دقيقة واحدة، وشاهد الفرق بنفسك من أول استخدام.</p>
-    <a class="go" href="#apps">ابدأ الآن</a>
+    <span class="eyebrow">برامج عربية للمعلمين</span>
+    <h1>برامج تجعل عمل المعلم <b>أسرع وأسهل</b></h1>
+    <p>تقويم المعلم وقارئ PDF بواجهة عربية كاملة، من تطوير أحمد زهران. حمّل البرنامج واستخدمه خلال دقيقة واحدة.</p>
+    <div class="cta"><a class="go" href="#apps">استعرض البرامج</a><a class="go ghost" href="#trust">الأمان والثقة</a></div>
     <div class="benefits">
-      <span>تحميل فوري ومباشر</span>
-      <span>بدون تسجيل ولا تعقيد</span>
-      <span>جرّبه بنفسك بلا التزام</span>
-      <span>نسخة كاملة بضغطة واحدة</span>
+      <span>واجهة عربية كاملة</span>
+      <span>تحميل مباشر من GitHub</span>
+      <span>بدون تسجيل حساب</span>
+      <span>تطوير: أحمد زهران</span>
     </div>
   </section>
 
@@ -175,6 +210,34 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
     <p class="empty" id="empty" hidden>لا توجد نتائج مطابقة.</p>
   </section>
 
+  <section class="trust" id="trust">
+    <div class="bar"><h2>الأمان والثقة</h2></div>
+    <div class="tg">
+      <article class="tc">
+        <div class="av">أ</div>
+        <h3>المطوّر: أحمد زهران</h3>
+        <p>جميع البرامج على هذا الموقع من تطوير أحمد زهران، ويمكنك التواصل معه مباشرة لأي استفسار أو مشكلة.</p>
+        <a class="tl" href="https://wa.me/201210349982" target="_blank" rel="noopener">تواصل عبر واتساب</a>
+      </article>
+      <article class="tc">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 14.2-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3z"/></svg></div>
+        <h3>تحميل مباشر من مصدر معلن</h3>
+        <p>الملفات تُحمَّل من صفحة الإصدارات على GitHub مباشرة، بلا موقع وسيط ولا روابط خارجية.</p>
+        <a class="tl" href="https://github.com/yourtec/yourtec.github.io/releases" target="_blank" rel="noopener">صفحة الإصدارات</a>
+      </article>
+      <article class="tc" id="tcDef"></article>
+      <article class="tc wide">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M9.4 16.6 4.8 12l1.4-1.4 3.2 3.2 8.4-8.4 1.4 1.4-9.8 9.8z"/></svg></div>
+        <h3>تحقّق من الملف بنفسك</h3>
+        <p>بعد التحميل افتح PowerShell في مجلد الملف، واكتب الأمر التالي وقارن الناتج ببصمة الإصدار:</p>
+        <code class="cmd" dir="ltr">Get-FileHash .\TeacherCalendar-Setup-3.1.1.rar -Algorithm SHA256</code>
+        <p class="hl">بصمة SHA-256 لـ «تقويم المعلم 3.1.1»:</p>
+        <code class="cmd hash" dir="ltr">6a064eaac01c3d9f0035c806b1653f048b3666149e7af77935e0e3f2c093317b</code>
+        <p class="hl">أما «قارئ PDF» فبصمته تظهر بجانب الملف في صفحة الإصدار على GitHub.</p>
+      </article>
+    </div>
+  </section>
+
   <section class="help" id="help">
     <div><h3>تثبيت ملفات الأندرويد (APK)</h3><p>بعد التحميل افتح الملف، وإذا ظهرت رسالة منع فعّل «السماح بالتثبيت من هذا المصدر» من الإعدادات ثم أعد فتحه.</p></div>
     <div><h3>كيف أحصل على النسخة الكاملة؟</h3><p>اضغط «احصل على النسخة الكاملة» على بطاقة البرنامج، وسنرسل لك النسخة أو مفتاح التفعيل بسرعة.</p></div>
@@ -188,9 +251,13 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
   </section>
 </div>
 
-<footer>
-  <a class="logo" href="#">Your<em style="font-style:normal;color:var(--gold)">TEC</em></a>
-  © <span id="year"></span> YourTEC. جميع الحقوق محفوظة.
+<footer class="f2">
+  <div class="wrap fg">
+    <div><a class="logo" href="#">Your<em>TEC</em></a><p>برامج عربية عملية للمعلمين، من تطوير أحمد زهران.</p></div>
+    <div><h4>الموقع</h4><a href="#apps">البرامج</a><a href="#trust">الأمان والثقة</a><a href="#help">المساعدة</a></div>
+    <div><h4>تواصل</h4><a href="https://wa.me/201210349982" target="_blank" rel="noopener">واتساب: 01210349982</a><a href="https://github.com/yourtec/yourtec.github.io/releases" target="_blank" rel="noopener">الإصدارات على GitHub</a></div>
+  </div>
+  <div class="wrap copy">© <span id="year"></span> YourTEC. جميع الحقوق محفوظة — تطوير أحمد زهران.</div>
 </footer>
 
 <script>
@@ -269,6 +336,14 @@ const APPS = [
   },
   {
     name: "قارئ PDF",
+    shots: [
+      {src: "pr-1.jpg", cap: "قراءة وكتابة فوق صفحات PDF"},
+      {src: "pr-2.jpg", cap: "سبورة بيضاء بأدوات رسم كاملة"},
+      {src: "pr-3.jpg", cap: "لعبة كسر الطوب لتفاعل الطلاب"},
+      {src: "pr-4.jpg", cap: "إدارة الصفحات: حذف وتدوير وترتيب"},
+      {src: "pr-5.jpg", cap: "الفهرس والعلامات المرجعية"},
+      {src: "pr-6.jpg", cap: "الإعدادات واللغة والمظهر"}
+    ],
     platform: "windows",
     version: "1.5.0",
     trial: "مجاني بالكامل",
@@ -436,6 +511,12 @@ render();
     if (e.key === "ArrowLeft") step(1);
   });
 })();
+
+/* بطاقة الفحص: لا تُفعَّل إلا بعد أن تفحص الملفات فعلًا ببرنامج Microsoft Defender */
+const TRUST = { defender: false };
+document.getElementById("tcDef").innerHTML = TRUST.defender
+  ? '<div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3z"/></svg></div><h3>فُحصت ببرنامج حماية ويندوز</h3><p>فُحصت الملفات ببرنامج Microsoft Defender قبل النشر، ولم يُرصد فيها أي تهديد.</p>'
+  : '<div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3z"/></svg></div><h3>افحصه بنفسك في ثوانٍ</h3><p>بعد التحميل: كليك يمين على الملف ثم «Scan with Microsoft Defender»، أو ارفعه على موقع VirusTotal للتحقق من أكثر من محرك فحص.</p>';
 </script>
 </body>
 </html>
