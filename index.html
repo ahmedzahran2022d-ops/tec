@@ -144,20 +144,6 @@ header{background:rgba(18,20,27,.85);backdrop-filter:blur(10px)}
 .go.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
 .go.ghost:hover{border-color:var(--gold);color:var(--gold);background:transparent}
 .show{box-shadow:0 18px 50px rgba(0,0,0,.35)}
-.trust{margin-top:54px}
-.tg{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.tc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:8px;transition:border-color .2s,transform .2s}
-.tc:hover{border-color:rgba(255,178,30,.45);transform:translateY(-2px)}
-.tc.wide{grid-column:1/-1}
-.tc h3{font-size:1.1rem;font-weight:800}
-.tc p{color:var(--muted);font-size:.93rem}
-.tc p.hl{color:#c9cee0;font-weight:700;margin-top:6px}
-.av,.ic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:rgba(255,178,30,.12);color:var(--gold);font-weight:900;font-size:1.5rem}
-.ic svg{width:26px;height:26px;fill:currentColor}
-.tl{margin-top:auto;align-self:flex-start;font-weight:800;font-size:.9rem;color:var(--gold);border-bottom:1.5px solid rgba(255,178,30,.4);padding-bottom:1px}
-.tl:hover{border-color:var(--gold)}
-.cmd{display:block;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font:600 .85rem/1.6 Consolas,Menlo,monospace;color:#c9cee0;overflow-x:auto;text-align:left;white-space:nowrap}
-.cmd.hash{color:var(--gold)}
 .f2{margin-top:64px;border-top:1px solid var(--line);background:var(--bar);padding:40px 0 0;text-align:right}
 .f2 .fg{display:grid;gap:30px;grid-template-columns:1.4fr 1fr 1fr}
 .f2 p{color:var(--muted);font-size:.92rem;margin-top:8px;max-width:26em}
@@ -168,6 +154,52 @@ header{background:rgba(18,20,27,.85);backdrop-filter:blur(10px)}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 @media(max-width:700px){.f2 .fg{grid-template-columns:1fr}.intro{padding:30px 22px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== نسخة الموبايل ===== */
+@media(max-width:700px){
+  .wrap{padding:0 14px}
+  header{position:static}
+  .hd{height:auto;flex-wrap:wrap;gap:10px 14px;padding:10px 0}
+  .logo{font-size:1.4rem}
+  .menu{margin-right:auto}
+  .menu a{padding:6px 10px;font-size:.9rem}
+  .search{order:3;flex:1 1 100%;max-width:none}
+  .intro{margin-top:16px;padding:26px 20px;border-radius:18px}
+  .intro h1{font-size:1.65rem}
+  .cta .go,.go{width:100%;text-align:center}
+  .benefits{gap:6px 18px;font-size:.88rem}
+  .bar{margin:22px 0 14px}.bar h2{font-size:1.25rem}
+  .show{padding:18px;border-radius:20px;gap:18px}
+  .side{flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px}
+  .side img,.side .ph{width:84px;height:84px;border-radius:20px}
+  .side h3{font-size:1.35rem;flex:1}
+  .side .row{width:100%}
+  .groups{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .item{display:flex;flex-direction:row;gap:14px;align-items:stretch}
+  .item .cover{flex:0 0 42%;aspect-ratio:auto;min-height:200px}
+  .item .info{flex:1}
+  .shot img{height:130px}
+  .shots.phone .shot img{height:280px}
+  .shots{margin-inline:-4px;padding-bottom:10px}
+  .shots-h{font-size:1rem}
+  #lb{padding:10px}#lb img{max-width:96vw;max-height:70vh}
+  #lb .pv,#lb .nx{top:auto;bottom:18px}#lb .pv{right:24px}#lb .nx{left:24px}
+  .help{margin-top:34px}.final{margin-top:34px;padding:30px 16px}
+  .f2{margin-top:40px}
+}
+.dl.soon{background:transparent;color:var(--muted);border:1.5px dashed var(--line);cursor:default;box-shadow:none;pointer-events:none}
+.mob{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.mlb{font-size:.82rem;font-weight:800;color:var(--muted);text-align:center}
+.dl.m{background:transparent;color:#3ddc84;border:1.5px solid #3ddc84;box-shadow:none}
+.dl.m:hover{background:rgba(61,220,132,.12)}
+.dl.m.soon{color:var(--muted);border:1.5px dashed var(--line)}
+.side .row .and{background:rgba(61,220,132,.14);color:#3ddc84;border-radius:8px;padding:2px 11px;font-weight:800}
+.mhd{display:flex;align-items:center;gap:10px;justify-content:center}
+.mhd img{border-radius:12px}
+.mhd b{display:block;font-size:.95rem}.mhd small{color:var(--muted);font-size:.8rem}
+.shots.phone .shot img{height:340px}
+.shots.phone .shot{border-radius:18px}
 </style>
 </head>
 <body>
@@ -178,7 +210,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
       <svg viewBox="0 0 24 24"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 14 15.5l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
       <input id="q" type="search" placeholder="ابحث عن برنامج..." aria-label="ابحث عن برنامج">
     </label>
-    <nav class="menu"><a href="#apps">البرامج</a><a href="#trust">الأمان</a><a href="#help">المساعدة</a></nav>
+    <nav class="menu"><a href="#apps">البرامج</a><a href="#help">المساعدة</a></nav>
   </div>
 </header>
 
@@ -187,7 +219,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
     <span class="eyebrow">برامج عربية للمعلمين</span>
     <h1>برامج تجعل عمل المعلم <b>أسرع وأسهل</b></h1>
     <p>تقويم المعلم وقارئ PDF بواجهة عربية كاملة، من تطوير أحمد زهران. حمّل البرنامج واستخدمه خلال دقيقة واحدة.</p>
-    <div class="cta"><a class="go" href="#apps">استعرض البرامج</a><a class="go ghost" href="#trust">الأمان والثقة</a></div>
+    <div class="cta"><a class="go" href="#apps">استعرض البرامج</a></div>
     <div class="benefits">
       <span>واجهة عربية كاملة</span>
       <span>تحميل مباشر من GitHub</span>
@@ -210,34 +242,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
     <p class="empty" id="empty" hidden>لا توجد نتائج مطابقة.</p>
   </section>
 
-  <section class="trust" id="trust">
-    <div class="bar"><h2>الأمان والثقة</h2></div>
-    <div class="tg">
-      <article class="tc">
-        <div class="av">أ</div>
-        <h3>المطوّر: أحمد زهران</h3>
-        <p>جميع البرامج على هذا الموقع من تطوير أحمد زهران، ويمكنك التواصل معه مباشرة لأي استفسار أو مشكلة.</p>
-        <a class="tl" href="https://wa.me/201210349982" target="_blank" rel="noopener">تواصل عبر واتساب</a>
-      </article>
-      <article class="tc">
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 14.2-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3z"/></svg></div>
-        <h3>تحميل مباشر من مصدر معلن</h3>
-        <p>الملفات تُحمَّل من صفحة الإصدارات على GitHub مباشرة، بلا موقع وسيط ولا روابط خارجية.</p>
-        <a class="tl" href="https://github.com/yourtec/yourtec.github.io/releases" target="_blank" rel="noopener">صفحة الإصدارات</a>
-      </article>
-      <article class="tc" id="tcDef"></article>
-      <article class="tc wide">
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M9.4 16.6 4.8 12l1.4-1.4 3.2 3.2 8.4-8.4 1.4 1.4-9.8 9.8z"/></svg></div>
-        <h3>تحقّق من الملف بنفسك</h3>
-        <p>بعد التحميل افتح PowerShell في مجلد الملف، واكتب الأمر التالي وقارن الناتج ببصمة الإصدار:</p>
-        <code class="cmd" dir="ltr">Get-FileHash .\TeacherCalendar-Setup-3.1.1.rar -Algorithm SHA256</code>
-        <p class="hl">بصمة SHA-256 لـ «تقويم المعلم 3.1.1»:</p>
-        <code class="cmd hash" dir="ltr">6a064eaac01c3d9f0035c806b1653f048b3666149e7af77935e0e3f2c093317b</code>
-        <p class="hl">أما «قارئ PDF» فبصمته تظهر بجانب الملف في صفحة الإصدار على GitHub.</p>
-      </article>
-    </div>
-  </section>
-
   <section class="help" id="help">
     <div><h3>تثبيت ملفات الأندرويد (APK)</h3><p>بعد التحميل افتح الملف، وإذا ظهرت رسالة منع فعّل «السماح بالتثبيت من هذا المصدر» من الإعدادات ثم أعد فتحه.</p></div>
     <div><h3>كيف أحصل على النسخة الكاملة؟</h3><p>اضغط «احصل على النسخة الكاملة» على بطاقة البرنامج، وسنرسل لك النسخة أو مفتاح التفعيل بسرعة.</p></div>
@@ -254,7 +258,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 <footer class="f2">
   <div class="wrap fg">
     <div><a class="logo" href="#">Your<em>TEC</em></a><p>برامج عربية عملية للمعلمين، من تطوير أحمد زهران.</p></div>
-    <div><h4>الموقع</h4><a href="#apps">البرامج</a><a href="#trust">الأمان والثقة</a><a href="#help">المساعدة</a></div>
+    <div><h4>الموقع</h4><a href="#apps">البرامج</a><a href="#help">المساعدة</a></div>
     <div><h4>تواصل</h4><a href="https://wa.me/201210349982" target="_blank" rel="noopener">واتساب: 01210349982</a><a href="https://github.com/yourtec/yourtec.github.io/releases" target="_blank" rel="noopener">الإصدارات على GitHub</a></div>
   </div>
   <div class="wrap copy">© <span id="year"></span> YourTEC. جميع الحقوق محفوظة — تطوير أحمد زهران.</div>
@@ -273,6 +277,22 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 const APPS = [
   {
     name: "تقويم المعلم",
+    mobile: {
+      name: "تقويم المعلم",
+      icon: "teacher-calendar-mobile.png",
+      version: "3.1.1",
+      size: "3.2 ميجا",
+      dlText: "تحميل لأندرويد (APK)",
+      link: "https://github.com/yourtec/yourtec.github.io/releases/download/v3.1.1/TeacherCalendar-Mobile-3.1.1.apk",
+      shots: [
+        {src: "tcm-1.jpg", cap: "لوحة اليوم على الهاتف"},
+        {src: "tcm-2.jpg", cap: "التقويم الشهري"},
+        {src: "tcm-3.jpg", cap: "ملفات الطلاب"},
+        {src: "tcm-4.jpg", cap: "التقارير ونسبة الإنجاز"},
+        {src: "tcm-5.jpg", cap: "المحاسبة وحساب الأجور"},
+        {src: "tcm-6.jpg", cap: "القائمة الكاملة"}
+      ]
+    },
     shots: [
       {src: "tc-1.jpg", cap: "لوحة اليوم: حصص اليوم والحصة القادمة"},
       {src: "tc-2.jpg", cap: "التقويم الشهري بحصص كل يوم"},
@@ -337,12 +357,12 @@ const APPS = [
   {
     name: "قارئ PDF",
     shots: [
-      {src: "pr-1.jpg", cap: "قراءة وكتابة فوق صفحات PDF"},
-      {src: "pr-2.jpg", cap: "سبورة بيضاء بأدوات رسم كاملة"},
-      {src: "pr-3.jpg", cap: "لعبة كسر الطوب لتفاعل الطلاب"},
-      {src: "pr-4.jpg", cap: "إدارة الصفحات: حذف وتدوير وترتيب"},
-      {src: "pr-5.jpg", cap: "الفهرس والعلامات المرجعية"},
-      {src: "pr-6.jpg", cap: "الإعدادات واللغة والمظهر"}
+      {src: "pr-1.jpg", cap: "اكتب وظلّل وارسم فوق صفحات PDF"},
+      {src: "pr-2.jpg", cap: "عدسة تكبير تتبّع مؤشرك أثناء الشرح"},
+      {src: "pr-3.jpg", cap: "فلتر التركيز: يعتّم ما حول المؤشر"},
+      {src: "pr-4.jpg", cap: "ليزر المؤشر بذيل متوهّج للعرض"},
+      {src: "pr-5.jpg", cap: "لعبة كسر الطوب لتفاعل الطلاب"},
+      {src: "pr-6.jpg", cap: "سبورة بيضاء بمنقلة ومحاور جاهزة"}
     ],
     platform: "windows",
     version: "1.5.0",
@@ -412,6 +432,20 @@ const grid = document.getElementById("grid"), empty = document.getElementById("e
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 let filter = "all";
 
+const AND = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 9.5a6 6 0 0 0-11.2 0H17.6zM8.5 6.6a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4zm7 0a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4zM6 10.5v7.2c0 .7.6 1.3 1.3 1.3H8v2.5a1.2 1.2 0 0 0 2.4 0V19h3.2v2.5a1.2 1.2 0 0 0 2.4 0V19h.7c.7 0 1.3-.6 1.3-1.3v-7.2H6zM3.7 10.5a1.2 1.2 0 0 0-1.2 1.2v4.6a1.2 1.2 0 0 0 2.4 0v-4.6a1.2 1.2 0 0 0-1.2-1.2zm16.6 0a1.2 1.2 0 0 0-1.2 1.2v4.6a1.2 1.2 0 0 0 2.4 0v-4.6a1.2 1.2 0 0 0-1.2-1.2z"/></svg>';
+function mobBtn(a){
+  if (!a.mobile) return "";
+  const m = a.mobile;
+  const btn = m.link
+    ? `<a class="dl m" href="${esc(m.link)}" download>${AND} ${esc(m.dlText || "تحميل لأندرويد")} ${m.size ? `<small>${esc(m.size)}</small>` : ""}</a>`
+    : `<span class="dl m soon" aria-disabled="true">${AND} نسخة أندرويد · قريبًا</span>`;
+  const head = `<div class="mhd">${m.icon ? `<img src="${esc(m.icon)}" alt="" width="46" height="46">` : ""}<div><b>${esc(m.name || a.name)} للموبايل</b><small>أندرويد${m.version ? " · الإصدار " + esc(m.version) : ""}</small></div></div>`;
+  return `<div class="mob"><span class="mlb">نسخة الموبايل</span>${head}${btn}</div>`;
+}
+function dlBtn(a){
+  if (!a.link) return `<span class="dl soon" aria-disabled="true">قريبًا</span>`;
+  return `<a class="dl" href="${esc(a.link)}" download>${DL} ${esc(a.dlText || "ابدأ التجربة الآن")} ${a.size ? `<small>${esc(a.size)}</small>` : ""}</a>`;
+}
 function card(a, i){
   return `
     <article class="item" data-platform="${esc(a.platform)}">
@@ -424,20 +458,21 @@ function card(a, i){
       <div class="info">
         <p class="desc">${esc(a.desc || "")}</p>
         ${a.trial ? `<span class="trial">${esc(a.trial)}</span>` : ""}
-        <a class="dl" href="${esc(a.link)}" download>${DL} ${esc(a.dlText || "ابدأ التجربة الآن")} ${a.size ? `<small>${esc(a.size)}</small>` : ""}</a>
+        ${dlBtn(a)}
         ${a.buy ? `<a class="buy" href="${esc(a.buy)}" target="_blank" rel="noopener">احصل على النسخة الكاملة ${a.price ? `<small>${esc(a.price)}</small>` : ""}</a>` : ""}
       </div>
     </article>`;
 }
 
-function shotsHTML(a){
-  if (!a.shots || !a.shots.length) return "";
+function shotsHTML(a, key = "shots", title = "صور من البرنامج", cls = ""){
+  const list = key === "shots" ? a.shots : (a.mobile && a.mobile.shots);
+  if (!list || !list.length) return "";
   const ai = APPS.indexOf(a);
-  const items = a.shots.map((x, i) => {
+  const items = list.map((x, i) => {
     const o = typeof x === "string" ? {src: x} : x;
-    return `<button type="button" class="shot" data-a="${ai}" data-i="${i}" aria-label="${esc(o.cap || "صورة من البرنامج")}"><img src="${esc(o.src)}" alt="${esc(o.cap || a.name)}" loading="lazy" onerror="var b=this.closest('.shot'),w=b.parentNode;b.remove();if(!w.children.length)w.previousElementSibling.remove(),w.remove()"></button>`;
+    return `<button type="button" class="shot" data-a="${ai}" data-i="${i}" data-k="${key}" aria-label="${esc(o.cap || "صورة من البرنامج")}"><img src="${esc(o.src)}" alt="${esc(o.cap || a.name)}" loading="lazy" onerror="var b=this.closest('.shot'),w=b.parentNode;b.remove();if(!w.children.length)w.previousElementSibling.remove(),w.remove()"></button>`;
   }).join("");
-  return `<h5 class="shots-h">صور من البرنامج</h5><div class="shots">${items}</div>`;
+  return `<h5 class="shots-h">${esc(title)}</h5><div class="shots ${cls}">${items}</div>`;
 }
 function showcase(a){
   const groups = a.features.map(([t, items]) =>
@@ -450,17 +485,19 @@ function showcase(a){
       <div class="side">
         ${art}
         <h3>${esc(a.name)}</h3>
-        <div class="row"><span>${LABELS[a.platform] || ""}</span>${a.version ? `<span class="v">الإصدار ${esc(a.version)}</span>` : ""}</div>
+        <div class="row"><span>${LABELS[a.platform] || ""}</span>${a.mobile ? `<span class="and">${LABELS.mobile}</span>` : ""}${a.version ? `<span class="v">الإصدار ${esc(a.version)}</span>` : ""}</div>
         ${a.trial ? `<span class="trial">${esc(a.trial)}</span>` : ""}
-        <a class="dl" href="${esc(a.link)}" download>${DL} ${esc(a.dlText || "ابدأ التجربة الآن")} ${a.size ? `<small>${esc(a.size)}</small>` : ""}</a>
+        ${dlBtn(a)}
         ${a.buy ? `<a class="buy" href="${esc(a.buy)}" target="_blank" rel="noopener">احصل على النسخة الكاملة ${a.price ? `<small>${esc(a.price)}</small>` : ""}</a>` : ""}
         ${a.alt ? `<a class="alt" href="${esc(a.alt)}" download>أو حمّل النسخة المحمولة (بدون تثبيت)</a>` : ""}
+        ${mobBtn(a)}
       </div>
       <div class="main">
         <h4 class="tl">${a.tagline || esc(a.name)}</h4>
         <p class="lead">${esc(a.desc || "")}</p>
         <div class="groups">${groups}</div>
         ${shotsHTML(a)}
+        ${shotsHTML(a, "mshots", "صور نسخة الموبايل", "phone")}
       </div>
     </article>`;
 }
@@ -469,7 +506,7 @@ function render(){
   const term = q.value.trim().toLowerCase();
   const text = a => (a.name + " " + (a.desc || "") + " " + (a.features ? a.features.map(g => g[0] + " " + g[1].join(" ")).join(" ") : "")).toLowerCase();
   const list = APPS.map((a,i) => ({a,i})).filter(({a}) =>
-    (filter === "all" || a.platform === filter) && (!term || text(a).includes(term)));
+    (filter === "all" || a.platform === filter || (filter === "mobile" && a.mobile)) && (!term || text(a).includes(term)));
   document.getElementById("showcase").innerHTML = list.filter(({a}) => a.features).map(({a}) => showcase(a)).join("");
   grid.innerHTML = list.filter(({a}) => !a.features).map(({a,i}) => card(a,i)).join("");
   empty.hidden = list.length > 0;
@@ -498,7 +535,7 @@ render();
   function close(){ lb.classList.remove("on"); document.body.style.overflow = ""; }
   document.addEventListener("click", e => {
     const b = e.target.closest(".shot");
-    if (b){ list = APPS[+b.dataset.a].shots; idx = +b.dataset.i; show(); lb.classList.add("on"); document.body.style.overflow = "hidden"; return; }
+    if (b){ const ap = APPS[+b.dataset.a]; list = b.dataset.k === "mshots" ? ap.mobile.shots : ap.shots; idx = +b.dataset.i; show(); lb.classList.add("on"); document.body.style.overflow = "hidden"; return; }
     if (!lb.classList.contains("on")) return;
     if (e.target.closest(".x") || e.target === lb) close();
     else if (e.target.closest(".pv")) step(-1);
@@ -512,11 +549,6 @@ render();
   });
 })();
 
-/* بطاقة الفحص: لا تُفعَّل إلا بعد أن تفحص الملفات فعلًا ببرنامج Microsoft Defender */
-const TRUST = { defender: false };
-document.getElementById("tcDef").innerHTML = TRUST.defender
-  ? '<div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3z"/></svg></div><h3>فُحصت ببرنامج حماية ويندوز</h3><p>فُحصت الملفات ببرنامج Microsoft Defender قبل النشر، ولم يُرصد فيها أي تهديد.</p>'
-  : '<div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3z"/></svg></div><h3>افحصه بنفسك في ثوانٍ</h3><p>بعد التحميل: كليك يمين على الملف ثم «Scan with Microsoft Defender»، أو ارفعه على موقع VirusTotal للتحقق من أكثر من محرك فحص.</p>';
 </script>
 </body>
 </html>
