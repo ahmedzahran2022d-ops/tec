@@ -282,6 +282,8 @@ const APPS = [
       icon: "teacher-calendar-mobile.png",
       version: "3.1.1",
       size: "3.2 ميجا",
+      trial: "جرّبه مجانًا 7 أيام",
+      buy: "https://wa.me/201210349982",
       dlText: "تحميل لأندرويد (APK)",
       link: "https://github.com/yourtec/yourtec.github.io/releases/download/v3.1.1/TeacherCalendar-Mobile-3.1.1.apk",
       shots: [
@@ -440,7 +442,9 @@ function mobBtn(a){
     ? `<a class="dl m" href="${esc(m.link)}" download>${AND} ${esc(m.dlText || "تحميل لأندرويد")} ${m.size ? `<small>${esc(m.size)}</small>` : ""}</a>`
     : `<span class="dl m soon" aria-disabled="true">${AND} نسخة أندرويد · قريبًا</span>`;
   const head = `<div class="mhd">${m.icon ? `<img src="${esc(m.icon)}" alt="" width="46" height="46">` : ""}<div><b>${esc(m.name || a.name)} للموبايل</b><small>أندرويد${m.version ? " · الإصدار " + esc(m.version) : ""}</small></div></div>`;
-  return `<div class="mob"><span class="mlb">نسخة الموبايل</span>${head}${btn}</div>`;
+  const trial = m.trial ? `<span class="trial" style="text-align:center">${esc(m.trial)}</span>` : "";
+  const buy = m.buy ? `<a class="buy" href="${esc(m.buy)}" target="_blank" rel="noopener">احصل على النسخة الكاملة</a>` : "";
+  return `<div class="mob"><span class="mlb">نسخة الموبايل</span>${head}${trial}${btn}${buy}</div>`;
 }
 function dlBtn(a){
   if (!a.link) return `<span class="dl soon" aria-disabled="true">قريبًا</span>`;
